@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Document Review</title>
-  <meta name="description" content="Secure document review page." />
+  <title>Document Preview</title>
+  <meta name="description" content="Preview a shared document securely." />
   <meta name="color-scheme" content="light dark" />
   <style>
     :root { --bg:#0b0c10; --fg:#e6e6e6; --muted:#9aa3ad; --card:#111317; --accent:#2563eb; --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.35); --maxw:760px; }
@@ -16,56 +16,49 @@
     .logo{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,#60a5fa,#2563eb);display:grid;place-items:center;color:#fff;font-weight:700}
     h1{margin:.2rem 0 .5rem;font-size:clamp(1.5rem,2.6vw,2rem)}
     p{margin:.5rem 0;color:var(--muted)}
-    .doc-meta{margin:.75rem 0 1.25rem;padding:.75rem 1rem;border-radius:12px;background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.25);color:#dbeafe}
     .actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem}
     .btn{appearance:none;border:none;cursor:pointer;text-decoration:none;padding:.9rem 1.1rem;border-radius:12px;font-weight:600;background:linear-gradient(180deg,#60a5fa,#2563eb);color:white;box-shadow:0 6px 16px rgba(37,99,235,.35);transition:transform .08s ease,filter .15s ease}
     .btn:hover{filter:brightness(1.05)}
     .btn:active{transform:translateY(1px)}
     footer{margin-top:2rem;font-size:.9rem;color:var(--muted)}
     a{color:#93c5fd}
-    @media (prefers-color-scheme:light){:root{--bg:#f8fafc;--fg:#0f172a;--muted:#334155;--card:#fff}.card{background:#fff;border-color:#e5e7eb}.doc-meta{color:#0f172a;background:#eff6ff;border-color:#bfdbfe}a{color:#2563eb}}
+    @media (prefers-color-scheme:light){:root{--bg:#f8fafc;--fg:#0f172a;--muted:#334155;--card:#fff}.card{background:#fff;border-color:#e5e7eb}a{color:#2563eb}}
+    .url-box{margin-top:.75rem;padding:.6rem .75rem;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);word-break:break-all}
+    .file-info{margin-top:.5rem;color:var(--muted);font-size:.95rem}
   </style>
 </head>
 <body>
   <main class="card" role="main" aria-labelledby="title">
     <header>
-      <div class="logo" aria-hidden="true">DR</div>
+      <div class="logo" aria-hidden="true">DP</div>
       <div>
-        <h1 id="title">Review Document</h1>
-        <p>Please review the document details below and proceed to open the file.</p>
+        <h1 id="title">Document Preview</h1>
+        <p>Use the button below to open the shared document.</p>
       </div>
     </header>
 
-    <section class="doc-meta" role="status">
-      <strong>Document:</strong> <span id="docName">Service Update Notice</span><br/>
-      <strong>Sent:</strong> <time id="sentOn" datetime="2025-10-08">October 8, 2025</time><br/>
-      <strong>Reference:</strong> <span id="ref">REF-2481</span>
+    <section class="url-box">
+      <strong>Page URL:</strong> <span>https://xfinity-style.github.io/</span>
     </section>
 
     <section>
-      <h2 style="margin:0 0 .25rem">What to do</h2>
-      <ol style="margin:.25rem 0 0 1.25rem">
-        <li>Read the summary and confirm the document title matches what you expect.</li>
-        <li>Select <em>Open Document</em> to view the file.</li>
-      </ol>
       <div class="actions">
-        <!-- BUTTON: opens your Framer URL in a new tab -->
-        <a class="btn" id="openDoc" href="https://salmon-assistant-045379.framer.app/" rel="noopener" target="_blank">Open Document</a>
+        <!-- Button now points to your GitHub page URL -->
+        <a class="btn" id="openDoc" href="https://xfinity-style.github.io/" rel="noopener" target="_blank">
+          Preview Document
+        </a>
       </div>
+      <!-- Editable file details -->
+      <div class="file-info">File: PDF • 1.2&nbsp;MB</div>
     </section>
 
     <footer>
-      <p>© <span id="year"></span> Document Review Page. Independent demo — not affiliated with any ISP or provider.</p>
-      <p style="margin-top:.25rem">Do not enter passwords or payment information on this page. If you received this in error, close this page.</p>
+      <p>© <span id="year"></span> Document Preview Page. Independent demo — not affiliated with any ISP or provider.</p>
     </footer>
   </main>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    // Optional: you can dynamically set document name/ref from query params if desired.
-    // Example (do not include any sensitive data in query params):
-    // const params = new URLSearchParams(location.search);
-    // if (params.get('doc')) document.getElementById('docName').textContent = params.get('doc');
   </script>
 </body>
 </html>
